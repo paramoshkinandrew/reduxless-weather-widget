@@ -1,0 +1,15 @@
+.weather-widget {
+    width: 150px;
+    height: 150px;
+    border: 1px grey solid;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.weather-widget__weather-icon {
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
