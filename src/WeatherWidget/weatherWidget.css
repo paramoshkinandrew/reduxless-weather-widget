@@ -10,6 +10,10 @@
     position: relative;
 }
 
+.weather-widget__location-name {
+    text-align: center;
+}
+
 .weather-widget__weather-icon {
     margin-bottom: 10px;
     margin-top: 10px;

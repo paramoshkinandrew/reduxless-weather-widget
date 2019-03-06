@@ -5,20 +5,22 @@ import { padStart } from "./utils/padStart";
 import { Loader } from './Loader';
 import './weatherWidget.css';
 
-export const WeatherWidget = () => {
-  const geolocation = useGeolocation();
+export const WeatherWidget = React.memo(({ geolocation: passedGeolocation }) => {
+  const geolocation = passedGeolocation || useGeolocation();
   const { weather, location, loading, error } = useWeather(geolocation);
 
   return (
     <div className="weather-widget">
       {loading && (
-        <Loader className="weather-widget__loader"/>
+        <Loader className="weather-widget__loader" />
       )}
       {(!loading && error) && (
         <p>An error occurred during update</p>
       )}
       {(location && weather && !loading) && (
         <div className="weather-widget__location-name">
+          {location['ParentCity']['LocalizedName']}
+          <br />
           {location['LocalizedName']}
         </div>
       )}
@@ -39,4 +41,4 @@ export const WeatherWidget = () => {
       )}
     </div>
   );
-};
+});
