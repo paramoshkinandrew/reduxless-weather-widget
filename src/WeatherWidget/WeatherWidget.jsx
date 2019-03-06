@@ -2,15 +2,22 @@ import * as React from 'react';
 import { useGeolocation } from './useGeolocation';
 import { useWeather } from './useWeather';
 import { padStart } from "./utils/padStart";
+import { Loader } from './Loader';
 import './weatherWidget.css';
 
 export const WeatherWidget = () => {
   const geolocation = useGeolocation();
-  const { weather, location } = useWeather(geolocation);
+  const { weather, location, loading, error } = useWeather(geolocation);
 
   return (
     <div className="weather-widget">
-      {(location && weather) && (
+      {loading && (
+        <Loader className="weather-widget__loader"/>
+      )}
+      {(!loading && error) && (
+        <p>An error occurred during update</p>
+      )}
+      {(location && weather && !loading) && (
         <div className="weather-widget__location-name">
           {location['LocalizedName']}
         </div>
