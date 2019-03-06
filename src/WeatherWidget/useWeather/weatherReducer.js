@@ -4,7 +4,7 @@ import {
   FETCH_START,
   SET_LOCATION,
   SET_WEATHER
-} from "./useWeatherActions";
+} from "./weatherActions";
 
 export const INITIAL_STATE = {
   loading: false,

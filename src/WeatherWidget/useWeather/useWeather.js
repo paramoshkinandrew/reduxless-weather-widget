@@ -1,6 +1,6 @@
 import React from "react";
 import { WeatherDispatchContext, WeatherStateContext } from "./WeatherProvider";
-import { fetchFailed, fetchFinish, fetchStart, setLocation, setWeather } from './useWeatherActions';
+import { fetchFailed, fetchFinish, fetchStart, setLocation, setWeather } from './weatherActions';
 import { getLocation, getWeather } from "./accuWeatherService";
 
 export const useWeather = (geolocation) => {
